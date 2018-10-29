@@ -1,0 +1,6 @@
+{"tiny":"http://tiny.url1","long":"http://long.version/of_the_url1"}
+{"tiny":"http://tiny.url1","long":"http://long.version/of_the_url1"}
+{"tiny":"http://tiny.url3","long":"http://long.version/of_the_url3"}
+{"tiny":"http://tiny.url3","long":"http://long.version/of_the_url3"}
+{"tiny":"http://tiny.url4","long":"http://long.version/of_the_url4"}
+{"tiny":"http://tiny.url5","long":"http://long.version/of_the_url5"}
