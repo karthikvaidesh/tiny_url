@@ -3,7 +3,7 @@ package ncsu.tinyurl.project.UrlMap;
 import java.util.HashMap;
 import java.util.Map;
 
-//This is a singleton class which maintains the key-value map.
+//This is a singleton class which adds the key-value to a Map. 
 
 public class AppInstance {
 
@@ -14,9 +14,7 @@ public class AppInstance {
 	//Returns 0 if successful, otherwise 1
 	public int addUrl(String key, String value) {
 		if(!urlMap.containsKey(key)) urlMap.put(key, value);
-		
-		else {
-			// If key already exists Return error
+		else {  // If key already exists Return error
 			System.out.println("This key already exists.");
 			return 0;
 		}
