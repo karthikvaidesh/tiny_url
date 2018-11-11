@@ -9,4 +9,4 @@ with open("sample.txt", "r") as f:
         soup = BeautifulSoup(page.content)
         links = soup.findAll("a")
         for link in  soup.find_all("a",href=re.compile("(?<=/url\?q=)(htt.*://.*)")):
-            print type(re.split(":(?=http)",link["href"].replace("/url?q=","")))
+            print re.split(":(?=http)",link["href"].replace("/url?q=",""))

@@ -1,0 +1,4 @@
+[2018-11-11 13:43:35,071] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@66d3c617, name=log4j:logger=state.change.logger (state.change.logger)
+[2018-11-11 13:43:46,378] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@66d3c617, name=log4j:logger=state.change.logger (state.change.logger)
+[2018-11-11 13:44:23,863] TRACE [Controller id=0 epoch=1] Received response {error_code=0} for request UPDATE_METADATA with correlation id 0 sent to broker vclv13-94.hpc.ncsu.edu:9092 (id: 0 rack: null) (state.change.logger)
+[2018-11-11 13:44:35,270] TRACE [Controller id=0 epoch=2] Received response {error_code=0} for request UPDATE_METADATA with correlation id 0 sent to broker vclv13-94.hpc.ncsu.edu:9092 (id: 0 rack: null) (state.change.logger)
