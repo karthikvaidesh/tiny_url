@@ -34,11 +34,11 @@ def main():
     consumer = KafkaConsumer(bootstrap_servers='localhost:9092',
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=1000)
-    consumer.subscribe(['test'])
+    consumer.subscribe(['post'])
 
-    while 1:
     #while not self.stop_event.is_set():
-        for message in consumer:
+    while 1:
+	for message in consumer:
             print(message)
 
     consumer.close()
