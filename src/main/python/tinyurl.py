@@ -4,11 +4,13 @@ import ast
 with open("op.txt", "r") as f:
     for line in f:
         line = ast.literal_eval(line)
-    
+
         for i in range(len(line)):
             print(line[i])
 
-            data = {'link':line[i]}
-            r = requests.post("http://localhost:8000", data = data)
+            data = {'url':line[i]}
+            print(data)
+	    r = requests.post("http://localhost:5000/generate/tiny/", data = data, headers = {'Content-Type': 'application/json'})
 
-            print(r.status_code, r.reason)
+            print(r)
+	    print(r.status_code, r.reason)
