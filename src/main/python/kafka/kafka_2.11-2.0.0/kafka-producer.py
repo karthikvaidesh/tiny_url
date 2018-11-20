@@ -15,9 +15,8 @@ def handle_long_url():
         print(request.data)
         request.data.decode('utf8')
         #req = ast.literal_eval(request.data)
-        print(request)
         url = request.data[4:len(request.data)]
-        #url = urllib.unquote(url).decode('utf8') 
+        url = urllib.unquote(url)
         print(url)
         producer.send('post', pickle.dumps(url))
         
