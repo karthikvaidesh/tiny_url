@@ -10,15 +10,14 @@ app = Flask(__name__)
 @app.route('/generate/tiny/', methods=['POST'])
 def handle_long_url():
     producer = KafkaProducer(bootstrap_servers='localhost:9092')
-    print("Inside long url")
 
     if request.method == 'POST':
         print(request.data)
         request.data.decode('utf8')
-        req = ast.literal_eval(request.data)
-        print(req)
-        url = req['url']
-        url = urllib.unquote(url).decode('utf8') 
+        #req = ast.literal_eval(request.data)
+        print(request)
+        url = request.data[4:len(request.data)]
+        #url = urllib.unquote(url).decode('utf8') 
         print(url)
         producer.send('post', pickle.dumps(url))
         
