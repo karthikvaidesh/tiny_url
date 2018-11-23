@@ -1,4 +1,5 @@
-.idea/
-target
-target/
-target/**/*.class
+cassandra-spark/url-aggregator/.idea/
+cassandra-spark/url-aggregator/target
+cassandra-spark/url-aggregator/target/
+cassandra-spark/url-aggregator/target/**/*.class
+
