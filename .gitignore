@@ -2,4 +2,3 @@ cassandra-spark/url-aggregator/.idea/
 cassandra-spark/url-aggregator/target
 cassandra-spark/url-aggregator/target/
 cassandra-spark/url-aggregator/target/**/*.class
-

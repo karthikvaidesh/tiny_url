@@ -5,6 +5,7 @@ from kafka import KafkaConsumer
 import pickle
 from cassandra.cluster import Cluster
 import redis
+import hashlib
 
 r = redis.StrictRedis(host='localhost', port=6379)
 
@@ -20,12 +21,10 @@ def main():
     #while not self.stop_event.is_set():
     while 1:
 	for message in consumer:
-	    print("HELLO")
-            print(message)
-            print(message.value)
             long_url = pickle.loads(message.value)
+	    print(long_url)
             # generate tiny url
-            hashed = 'hash'
+            hashed = hashlib.sha1(long_url.encode()).hexdigest()
             tiny_url = 'http://localhost:5000/tiny/' + hashed
 	    session.execute(
 		"""
