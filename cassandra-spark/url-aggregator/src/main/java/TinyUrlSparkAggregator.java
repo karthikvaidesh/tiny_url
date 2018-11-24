@@ -30,7 +30,7 @@ public class TinyUrlSparkAggregator implements Serializable {
         System.out.println("In compute");
         urlLogRDD = CassandraJavaUtil
                 .javaFunctions(sc)
-                .cassandraTable("url_logs", "urls", new UrlRowReader.UrlRowReaderFactory())
+                .cassandraTable("tinyurl", "url_visits", new UrlRowReader.UrlRowReaderFactory())
                 .keyBy(new Function<UrlLog, String>() {
                     public String call(UrlLog urlLog) throws Exception {
                         System.out.println(urlLog.getTinyUrl());
@@ -54,7 +54,7 @@ public class TinyUrlSparkAggregator implements Serializable {
         System.out.println("Showing results");
         CassandraJavaUtil
                 .javaFunctions(urlLogRDD)
-                .writerBuilder("url_logs", "summary", new UrlRowWriter.UrlRowWriterFactory())
+                .writerBuilder("tinyurl", "summary", new UrlRowWriter.UrlRowWriterFactory())
                 .saveToCassandra();
 
         List<Tuple2<String, Url>> list = urlLogRDD.collect();
