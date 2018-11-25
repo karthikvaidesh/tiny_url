@@ -1,4 +1,4 @@
 flask
 kafka-python
 cassandra-driver
-cqlsh
+redis
