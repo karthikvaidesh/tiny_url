@@ -1,9 +1,6 @@
 define env_setup =
 	sudo apt-get update && sudo apt-get upgrade -y
-	#sudo apt-get install default-jdk -y
-	sudo add-apt-repository ppa:webupd8team/java
-	sudo apt-get update
-	sudo apt-get install oracle-java8-installer -y
+	sudo apt-get install openjdk-8-jdk -y
 	export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
 	sudo apt-get install maven -y
 	mvn package -f cassandra-spark/url-aggregator/pom.xml -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6

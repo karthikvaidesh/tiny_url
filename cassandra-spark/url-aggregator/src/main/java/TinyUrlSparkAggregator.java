@@ -70,7 +70,7 @@ public class TinyUrlSparkAggregator implements Serializable {
         conf.setAppName("Url aggregator");
         conf.setMaster("local[*]");
         conf.set("spark.cassandra.connection.host", "127.0.0.1");
-
+	conf.set("spark.driver.memory", "2g");
         TinyUrlSparkAggregator app = new TinyUrlSparkAggregator(conf);
         app.run();
     }
