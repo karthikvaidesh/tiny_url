@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/generate/tiny/', methods=['POST'])
 def handle_long_url():
-    producer = KafkaProducer(bootstrap_servers='152.46.18.170:9092')
+    producer = KafkaProducer(bootstrap_servers=['152.46.18.170:9092', '152.46.18.170:9093', '152.46.18.170:9094'])
 
     if request.method == 'POST':
 	json = request.get_json()
@@ -40,7 +40,7 @@ def handle_long_url():
 
 @app.route('/tiny/<url>', methods=['GET'])
 def handle_short_url(url):
-    producer = KafkaProducer(bootstrap_servers='152.46.18.170:9092')
+    producer = KafkaProducer(bootstrap_servers=['152.46.18.170:9092', '152.46.18.170:9093', '152.46.18.170:9094'])
 
     if request.method == 'GET':
 	print(request.url)
