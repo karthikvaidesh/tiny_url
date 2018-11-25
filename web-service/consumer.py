@@ -22,10 +22,11 @@ def main():
     while 1:
 	for message in consumer:
             long_url = pickle.loads(message.value)
-	    print(long_url)
+	    #print(long_url)
             # generate tiny url
             hashed = hashlib.sha1(long_url.encode()).hexdigest()
             tiny_url = 'http://localhost:5000/tiny/' + hashed
+	    print(tiny_url)
 	    session.execute(
 		"""
 		INSERT INTO urls (long_url, tiny_url, count)
