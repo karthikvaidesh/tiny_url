@@ -31,6 +31,7 @@ def handle_long_url():
         while NOT_DONE:
             message = p.get_message()
 	    if message:
+		print("Found tiny url")
                 value = message['data']
                 print(value)
                 if value != 1:
@@ -38,6 +39,7 @@ def handle_long_url():
         p.close()
     producer.close()
     if value:
+	print("Returning");
         return jsonify({'url': url, 'tiny_url': value})
     return jsonify({'result': 'Failure'})
 

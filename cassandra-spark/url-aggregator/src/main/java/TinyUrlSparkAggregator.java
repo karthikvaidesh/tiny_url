@@ -7,7 +7,7 @@ import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.List;
 
 public class TinyUrlSparkAggregator implements Serializable {
@@ -23,7 +23,12 @@ public class TinyUrlSparkAggregator implements Serializable {
         JavaSparkContext sc = new JavaSparkContext(conf);
         compute(sc);
         showResults(sc);
-        sc.stop();
+	try {
+                System.in.read();
+        } catch(IOException ioe) {
+                ioe.printStackTrace();
+        }
+	sc.stop();
     }
 
     private void compute(JavaSparkContext sc) {
@@ -48,6 +53,7 @@ public class TinyUrlSparkAggregator implements Serializable {
                         return url;
                     }
                 });
+	urlLogRDD.cache();
     }
 
     private void showResults(JavaSparkContext sc) {
@@ -70,8 +76,9 @@ public class TinyUrlSparkAggregator implements Serializable {
         conf.setAppName("Url aggregator");
         conf.setMaster("local[*]");
         conf.set("spark.cassandra.connection.host", "127.0.0.1");
-	conf.set("spark.driver.memory", "2g");
-        TinyUrlSparkAggregator app = new TinyUrlSparkAggregator(conf);
+	conf.set("spark.driver.memory", "471859200");
+        conf.set("spark.testing.memory", "2147480000");
+	TinyUrlSparkAggregator app = new TinyUrlSparkAggregator(conf);
         app.run();
     }
 }
