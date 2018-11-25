@@ -14,9 +14,9 @@ for i in range(ip):
     print(hash_val)
     url = "https://www.google.dz/search?q="+hash_val
     data = {'url':url}
-    r = requests.post("http://localhost:5000/generate/tiny/", data = json.dumps(data), headers = {'Content-Type': 'application/json'})
+    r = requests.post("http://152.46.16.129:5000/generate/tiny/", data = json.dumps(data), headers = {'Content-Type': 'application/json'})
     tiny_url = json.loads(r.text)['tiny_url']
-    random_calls = random.randint(1, 10)
+    random_calls = random.randint(1, 100)
     for i in range(random_calls):
         r = requests.get(url=tiny_url)
     time.sleep(0.001)

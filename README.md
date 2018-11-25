@@ -3,15 +3,17 @@
 
 Nodes:
 -------------
-Producer: 152.46.18.111
+Producer: 152.46.16.129
 
 Kafka : 152.46.18.170
 
-Consumer : 
+Consumer : 152.46.18.111 
 
-Consumer get : 
+Consumer get : 152.46.18.111
 
-Cassandra : 
+Cassandra : 152.46.16.108
 
-Spark :
+Spark : 152.46.16.108
+
+redis : 152.46.16.111
 
