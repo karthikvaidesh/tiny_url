@@ -2,3 +2,7 @@ cassandra-spark/url-aggregator/.idea/
 cassandra-spark/url-aggregator/target
 cassandra-spark/url-aggregator/target/
 cassandra-spark/url-aggregator/target/**/*.class
+redis-stable.tar.gz
+redis-stable/
+.venv
+
