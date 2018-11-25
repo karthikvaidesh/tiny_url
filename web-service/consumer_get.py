@@ -8,12 +8,12 @@ import hashlib
 import datetime
 
 def main():
-    consumer = KafkaConsumer(bootstrap_servers='localhost:9092',
+    consumer = KafkaConsumer(bootstrap_servers='152.46.18.170:9092',
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=1000)
     consumer.subscribe(['get'])
 
-    cluster = Cluster(['127.0.0.1'], port=9042)
+    cluster = Cluster(['152.46.16.108'], port=9042)
     session = cluster.connect('tinyurl')
 
     while 1:

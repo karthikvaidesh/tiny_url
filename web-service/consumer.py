@@ -7,15 +7,15 @@ from cassandra.cluster import Cluster
 import redis
 import hashlib
 
-r = redis.StrictRedis(host='localhost', port=6379)
+r = redis.StrictRedis(host='152.46.18.111', port=6379)
 
 def main():
-    consumer = KafkaConsumer(bootstrap_servers='localhost:9092',
+    consumer = KafkaConsumer(bootstrap_servers='152.46.18.170:9092',
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=1000)
     consumer.subscribe(['post'])
 
-    cluster = Cluster(['127.0.0.1'], port=9042)
+    cluster = Cluster(['152.46.16.108'], port=9042)
     session = cluster.connect('tinyurl')
 
     #while not self.stop_event.is_set():
@@ -25,7 +25,7 @@ def main():
 	    #print(long_url)
             # generate tiny url
             hashed = hashlib.sha1(long_url.encode()).hexdigest()
-            tiny_url = 'http://localhost:5000/tiny/' + hashed
+            tiny_url = 'http://127.0.0.1:5000/tiny/' + hashed
 	    print(tiny_url)
 	    session.execute(
 		"""
