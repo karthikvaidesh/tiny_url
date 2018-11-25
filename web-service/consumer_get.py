@@ -8,7 +8,7 @@ import hashlib
 import datetime
 
 def main():
-    consumer = KafkaConsumer(bootstrap_servers='152.46.18.170:9092',
+    consumer = KafkaConsumer(bootstrap_servers=['152.46.18.170:9092', '152.46.18.170:9093', '152.46.18.170:9094'],
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=1000)
     consumer.subscribe(['get'])
