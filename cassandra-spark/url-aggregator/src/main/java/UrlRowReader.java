@@ -14,8 +14,9 @@ public class UrlRowReader extends GenericRowReader<UrlLog> {
     public UrlLog read(Row row, CassandraRowMetadata rowMetaData) {
         UrlLog urlLog = new UrlLog();
         urlLog.setId(row.getString(0));
-        urlLog.setTinyUrl(row.getString(2));
-        urlLog.setLongUrl(row.getString(1));
+        urlLog.setTime(row.getTimestamp(2));
+        urlLog.setTinyUrl(row.getString(3));
+	urlLog.setLongUrl(row.getString(1));
         return urlLog;
     }
 

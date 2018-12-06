@@ -38,7 +38,7 @@ public class TinyUrlSparkAggregator implements Serializable {
                 .cassandraTable("tinyurl", "url_visits", new UrlRowReader.UrlRowReaderFactory())
                 .keyBy(new Function<UrlLog, String>() {
                     public String call(UrlLog urlLog) throws Exception {
-                        System.out.println(urlLog.getTinyUrl());
+                        //System.out.println(urlLog.getTinyUrl());
                         return urlLog.getTinyUrl();
                     }
                 })
